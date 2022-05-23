@@ -111,15 +111,17 @@ class Request implements IRequest
 
         list($endpoint, $parameters) = $this->dispatchRequest($this->getEndpoint() . '?' . http_build_query($this->getParameters()), $parameters);
 
-        $client->request(
+        $response = $client->request(
             $this->getMethod(), 
             $endpoint,
             $parameters
         );
 
+        list($status, $body) = $this->dispatchResponse($response);
+
         return new Response([
-            Response::FIELD__BODY => $response->getBody(),
-            Response::FIELD__STATUS => $response->getStatusCode()
+            Response::FIELD__BODY => $body,
+            Response::FIELD__STATUS => $status
         ]);
     }
 
