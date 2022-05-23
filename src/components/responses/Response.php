@@ -14,7 +14,7 @@ class Response implements IResponse
 
     public function getResult(): array
     {
-        return $this->attributes[static::FIELD__BODY][static::FIELD__RESULT] ?? [];
+        return $this->getBody()[static::FIELD__RESULT] ?? [];
     }
 
     public function getBody(): array
