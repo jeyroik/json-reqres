@@ -84,7 +84,14 @@ class Request implements IRequest
     protected function runGet(): IResponse
     {
         $client = $this->getHttpClient();
-        list($endpoint, $parameters) = $this->dispatchRequest($this->getEndpoint() . '?' . http_build_query($this->getParameters()), []);
+        $parameters = $this->getParameters();
+        $endpoint = $this->getEndpoint();
+
+        if (!empty($parameters)) {
+            $endpoint .= '?' . http_build_query($this->getParameters());
+        }
+
+        list($endpoint, $parameters) = $this->dispatchRequest($endpoint, []);
 
         $response = $client->request(
             $this->getMethod(), 
