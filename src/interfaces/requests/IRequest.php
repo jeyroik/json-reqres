@@ -2,8 +2,9 @@
 namespace jeyroik\interfaces\requests;
 
 use jeyroik\interfaces\responses\IResponse;
+use jeyroik\interfaces\IHaveAttributes;
 
-interface IRequest
+interface IRequest extends IHaveAttributes
 {
     public const FIELD__METHOD = 'method';
     public const METHOD__GET = 'GET';

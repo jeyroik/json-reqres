@@ -2,15 +2,11 @@
 namespace jeyroik\components\responses;
 
 use jeyroik\interfaces\responses\IResponse;
+use jeyroik\components\THasAttributes;
 
 class Response implements IResponse
 {
-    protected array $attributes = [];
-
-    public function __construct(array $attributes)
-    {
-        $this->attributes = $attributes;
-    }
+    use THasAttributes;
 
     public function getResult(): array
     {
