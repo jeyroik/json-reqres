@@ -1,7 +1,9 @@
 <?php
 namespace jeyroik\interfaces\responses;
 
-interface IResponse
+use jeyroik\interfaces\IHaveAttributes;
+
+interface IResponse extends IHaveAttributes
 {
     public const FIELD__BODY = 'body';
     public const FIELD__STATUS = 'status';

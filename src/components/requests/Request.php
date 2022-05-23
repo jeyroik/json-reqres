@@ -6,6 +6,7 @@ use jeyroik\interfaces\responses\IResponse;
 use jeyroik\components\responses\Response;
 use jeyroik\interfaces\requests\IRequest;
 use Psr\Http\Message\ResponseInterface;
+use jeyroik\components\THasAttributes;
 
 /**
  * Usage:
@@ -24,12 +25,7 @@ use Psr\Http\Message\ResponseInterface;
  */
 class Request implements IRequest
 {
-    protected array $attributes = [];
-
-    public function __construct(array $attributes)
-    {
-        $this->attributes = $attributes;
-    }
+    use THasAttributes;
 
     public function run(): IResponse
     {
