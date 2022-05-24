@@ -112,7 +112,7 @@ class Request implements IRequest
         $client = $this->getHttpClient();
         $parameters = ['form_params' => $this->getParameters()];
 
-        list($endpoint, $parameters) = $this->dispatchRequest($this->getEndpoint() . '?' . http_build_query($this->getParameters()), $parameters);
+        list($endpoint, $parameters) = $this->dispatchRequest($this->getEndpoint(), $parameters);
 
         $response = $client->request(
             $this->getMethod(), 

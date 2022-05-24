@@ -1,3 +1,6 @@
+# 0.2.2
+- Fixed endpoint building while POST request.
+
 # 0.2.1
 - Fixed parameters appending in GET-requests.
 
